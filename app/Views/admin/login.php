@@ -11,11 +11,21 @@
     <link rel="shortcut icon" href="favicon.ico">
 
 
-    <link rel="stylesheet" href="<?= base_url('vendors/bootstrap/dist/css/bootstrap.min.css') ?>">
-    <link rel="stylesheet" href="<?= base_url('vendors/font-awesome/css/font-awesome.min.css') ?>">
-    <link rel="stylesheet" href="<?= base_url('vendors/themify-icons/css/themify-icons.css') ?>">
-    <link rel="stylesheet" href="<?= base_url('vendors/flag-icon-css/css/flag-icon.min.css') ?>">
-    <link rel="stylesheet" href="<?= base_url('vendors/selectFX/css/cs-skin-elastic.css') ?>">
+    <link rel="stylesheet" href="<?= base_url(
+        'vendors/bootstrap/dist/css/bootstrap.min.css'
+    ) ?>">
+    <link rel="stylesheet" href="<?= base_url(
+        'vendors/font-awesome/css/font-awesome.min.css'
+    ) ?>">
+    <link rel="stylesheet" href="<?= base_url(
+        'vendors/themify-icons/css/themify-icons.css'
+    ) ?>">
+    <link rel="stylesheet" href="<?= base_url(
+        'vendors/flag-icon-css/css/flag-icon.min.css'
+    ) ?>">
+    <link rel="stylesheet" href="<?= base_url(
+        'vendors/selectFX/css/cs-skin-elastic.css'
+    ) ?>">
 
     <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
 
@@ -35,9 +45,29 @@
                     <a href="index.html">
                         <img class="align-content" src="images/logo.png" alt="">
                     </a>
+                    <?php if (session()->getFlashdata('errors')) { ?>
+                <div class="alert alert-danger col-md-12">
+                  <?php foreach (
+                      session()->getFlashdata('errors')
+                      as $error
+                  ): ?>
+                        <i class="fa fa-times"></i> <?= esc($error) ?>
+                        <br>
+                  <?php endforeach; ?>
                 </div>
+              <?php } elseif (session()->getFlashdata('success')) { ?>
+                <div class="alert alert-success col-md-12">
+                  <i class="fa fa-check"></i>  <?= session()->getFlashdata(
+                      'success'
+                  ) ?>
+                </div>
+              <?php } ?>
+                </div>
+
                 <div class="login-form">
-                    <form action="<?= base_url('admin/loginChecker') ?>" method="post">
+                    <form action="<?= base_url(
+                        'admin/loginChecker'
+                    ) ?>" method="post">
                         <div class="form-group">
                             <label>Email address</label>
                             <input type="email" name="email" class="form-control" placeholder="Email">
@@ -73,8 +103,12 @@
 
 
     <script src="<?= base_url('vendors/jquery/dist/jquery.min.js') ?>"></script>
-    <script src="<?= base_url('vendors/popper.js/dist/umd/popper.min.js') ?>"></script>
-    <script src="<?= base_url('vendors/bootstrap/dist/js/bootstrap.min.js') ?>"></script>
+    <script src="<?= base_url(
+        'vendors/popper.js/dist/umd/popper.min.js'
+    ) ?>"></script>
+    <script src="<?= base_url(
+        'vendors/bootstrap/dist/js/bootstrap.min.js'
+    ) ?>"></script>
     <script src="<?= base_url('assets/js/main.js') ?>"></script>
 
 
