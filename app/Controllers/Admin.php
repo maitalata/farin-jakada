@@ -5,7 +5,7 @@ namespace App\Controllers;
 /**
  * Admin Controller. Handles all administrators functions, such as login handler,
  * file upload, admin password changes and other functionalities
- * 
+ *
  * @category Controllers
  * @package  App\Controllers
  * @author   Umar Sunusi Maitalata <maitalata@gmail.com>
@@ -21,7 +21,11 @@ class Admin extends BaseController
      */
     public function index()
     {
-        echo view('admin/dashboard.php');
+        if (isset($_SESSION['admin_logged_in'])) {
+            echo view('admin/dashboard.php');
+        } else {
+            return redirect()->to('admin/login');
+        }
     }
 
     /**
@@ -32,5 +36,41 @@ class Admin extends BaseController
     public function login()
     {
         echo view('admin/login');
+    }
+
+    /**
+     * The function will check admin login and initialize sessions and redirects
+     * accordingly when the admin credentials are correct, otherwise it will return
+     * to login page and display error message.
+     *
+     * @return void
+     */
+    public function loginChecker()
+    {
+        $email = $this->request->getPost('email');
+        $password = $this->request->getPost('password');
+
+        $hash = $this->admin_model->getHashedPassword($email);
+        $check_login = $this->admin_model->checkLogin($email);
+
+        if ($check_login && password_verify($password, $hash)) {
+            $admin_details = $this->admin_model->getAdminDetails($email);
+            $this->session->set('current_adm9n', $email);
+            $this->session->set(
+                'current_admin_fullname',
+                $admin_details->first_name . ' ' . $admin_details->last_name
+            );
+            $this->session->set('current_admin_id', $admin_details->id);
+
+            $this->session->set('admin_logged_in', true);
+            return redirect()->to('admin/');
+
+        } else {
+            $this->session->setFlashdata(
+                'errors', [
+                    'Incorrect Email or Password',
+                ]);
+            return redirect()->to('admin/login/');
+        }
     }
 }
