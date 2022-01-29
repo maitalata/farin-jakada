@@ -37,7 +37,7 @@
                     </a>
                 </div>
                 <div class="login-form">
-                    <form action="<?= base_url('applicant/loginChecker') ?>" method="post">
+                    <form action="<?= base_url('admin/loginChecker') ?>" method="post">
                         <div class="form-group">
                             <label>Email address</label>
                             <input type="email" name="email" class="form-control" placeholder="Email">
