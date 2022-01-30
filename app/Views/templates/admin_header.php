@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="<?= base_url('vendors/selectFX/css/cs-skin-elastic.css') ?>">
     <link rel="stylesheet" href="<?= base_url('vendors/jqvmap/dist/jqvmap.min.css') ?>">
 
+    <link rel="stylesheet" href="<?= base_url('vendors/datatables.net-bs4/css/dataTables.bootstrap4.min.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') ?>">
 
     <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
 
@@ -49,7 +51,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-headphones"></i>Uploads</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-plus"></i><a href="<?= base_url('admin/new_upload') ?>">New Upload</a></li>
-                            <li><i class="fa fa-list-ul"></i><a href="tables-data.html">All Uploads</a></li>
+                            <li><i class="fa fa-list-ul"></i><a href="<?= base_url('admin/uploads') ?>">All Uploads</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">

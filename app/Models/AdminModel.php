@@ -63,9 +63,28 @@ class AdminModel extends Model
         $query = $builder->getWhere(['email' => $email]);
         return $query->getRow();
     }
+
+    /**
+     * Saves an item upload data to the database.
+     *
+     * @param mixed[] $data collection of the items data
+     * 
+     * @return void
+     */
     public function saveUpload($data)
     {
         $this->db->table('uploads')->insert($data);
+    }
+
+    /**
+     * Get the total number of uploaded items
+     * 
+     * @return void
+     */
+    public function getTotalUploads()
+    {
+        $builder = $this->db->table('uploads');
+        return $builder->countAllResults();
     }
 
 }

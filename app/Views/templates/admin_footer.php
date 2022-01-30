@@ -11,6 +11,7 @@
     <script src="<?= base_url('vendors/jqvmap/dist/jquery.vmap.min.js') ?>"></script>
     <script src="<?= base_url('vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') ?>"></script>
     <script src="<?= base_url('vendors/jqvmap/dist/maps/jquery.vmap.world.js') ?>"></script>
+    <script src="<?= base_url('assets/js/init-scripts/data-table/datatables-init.js') ?>"></script>
     <script>
         (function($) {
             "use strict";

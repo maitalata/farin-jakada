@@ -47,6 +47,18 @@ class Admin extends BaseController
         }
     }
 
+    public function uploads()
+    {
+        if (isset($_SESSION['admin_logged_in'])) {
+            //dd(phpinfo());
+            echo view('templates/admin_header');
+            echo view('admin/uploads');
+            echo view('templates/admin_footer');
+        } else {
+            return redirect()->to('admin/login');
+        }
+    }
+
     /**
      * Login page. The function returns the login page for the administrator's login.
      *
@@ -93,10 +105,18 @@ class Admin extends BaseController
         }
     }
 
+    /**
+     * Saves the submitted data from the new upload page, the function also handles
+     * the file upload functionality and will rename the uploaded audio file and move
+     * it to appropriate folder.
+     *
+     * @return void
+     */
     public function save_upload()
     {
         helper(['form', 'url']);
 
+        //Call the validation library
         $validation = \Config\Services::validation();
 
         $validation->setRules(
@@ -117,7 +137,9 @@ class Admin extends BaseController
 
             if (!$img->hasMoved()){
                 //$filepath = WRITEPATH . 'uploads/users/' . $img->store();
-                $newName = $_SESSION['current_admin_id'] . "_.mp3";
+                $total_uploads = $this->admin_model->getTotalUploads();
+                $total_uploads++;
+                $newName = "upload_".$total_uploads. "_.mp3";
                 $img->move(
                     'uploads/audio/', $newName);
             } else {
