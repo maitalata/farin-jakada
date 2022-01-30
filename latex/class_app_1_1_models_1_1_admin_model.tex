@@ -1,0 +1,73 @@
+\hypertarget{class_app_1_1_models_1_1_admin_model}{}\doxysection{Admin\+Model Class Reference}
+\label{class_app_1_1_models_1_1_admin_model}\index{AdminModel@{AdminModel}}
+Inheritance diagram for Admin\+Model\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_app_1_1_models_1_1_admin_model}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_admin_model_a5cd7936aeca7478e7ccfcfeaf8867d70}{get\+Hashed\+Password}} (\$email)
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_admin_model_a1e3ed66c22af7cd6f6039888369a7dca}{check\+Login}} (\$email)
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_admin_model_a010b9d17ff126f255cd42a20c003ca0c}{get\+Admin\+Details}} (\$email)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_app_1_1_models_1_1_admin_model_a1e3ed66c22af7cd6f6039888369a7dca}\label{class_app_1_1_models_1_1_admin_model_a1e3ed66c22af7cd6f6039888369a7dca}} 
+\index{AdminModel@{AdminModel}!checkLogin@{checkLogin}}
+\index{checkLogin@{checkLogin}!AdminModel@{AdminModel}}
+\doxysubsubsection{\texorpdfstring{checkLogin()}{checkLogin()}}
+{\footnotesize\ttfamily check\+Login (\begin{DoxyParamCaption}\item[{}]{\$email }\end{DoxyParamCaption})}
+
+This functions accept\textquotesingle{}s administrator\textquotesingle{}s email and return 1 if the administrator exist, otherwise it returns 0.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$email} & administrator\textquotesingle{}s email\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_app_1_1_models_1_1_admin_model_a010b9d17ff126f255cd42a20c003ca0c}\label{class_app_1_1_models_1_1_admin_model_a010b9d17ff126f255cd42a20c003ca0c}} 
+\index{AdminModel@{AdminModel}!getAdminDetails@{getAdminDetails}}
+\index{getAdminDetails@{getAdminDetails}!AdminModel@{AdminModel}}
+\doxysubsubsection{\texorpdfstring{getAdminDetails()}{getAdminDetails()}}
+{\footnotesize\ttfamily get\+Admin\+Details (\begin{DoxyParamCaption}\item[{}]{\$email }\end{DoxyParamCaption})}
+
+Function that get admin email and return all the details associated with that email
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$email} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_app_1_1_models_1_1_admin_model_a5cd7936aeca7478e7ccfcfeaf8867d70}\label{class_app_1_1_models_1_1_admin_model_a5cd7936aeca7478e7ccfcfeaf8867d70}} 
+\index{AdminModel@{AdminModel}!getHashedPassword@{getHashedPassword}}
+\index{getHashedPassword@{getHashedPassword}!AdminModel@{AdminModel}}
+\doxysubsubsection{\texorpdfstring{getHashedPassword()}{getHashedPassword()}}
+{\footnotesize\ttfamily get\+Hashed\+Password (\begin{DoxyParamCaption}\item[{}]{\$email }\end{DoxyParamCaption})}
+
+Function that returns the hashed password of administrators or an e,pty string
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$email} & administrator\textquotesingle{}s email address\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+empty$\vert$string the hashed password of the admin 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+app/\+Models/Admin\+Model.\+php\end{DoxyCompactItemize}

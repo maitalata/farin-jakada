@@ -1,0 +1,91 @@
+\hypertarget{class_config_1_1_format}{}\doxysection{Format Class Reference}
+\label{class_config_1_1_format}\index{Format@{Format}}
+Inheritance diagram for Format\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_config_1_1_format}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_config_1_1_format_ac6341d2788904fc2d43d12853fa22f78}{get\+Formatter}} (string \$mime)
+\end{DoxyCompactItemize}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_config_1_1_format_a397eb59916389cf3a17c0f3fccf3b3ea}{\$supported\+Response\+Formats}}
+\item 
+\mbox{\hyperlink{class_config_1_1_format_a1e1b0937073db0198a45136adf2d296c}{\$formatters}}
+\item 
+\mbox{\hyperlink{class_config_1_1_format_a86021fca8f7ec919dd5328b7503498db}{\$formatter\+Options}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_config_1_1_format_ac6341d2788904fc2d43d12853fa22f78}\label{class_config_1_1_format_ac6341d2788904fc2d43d12853fa22f78}} 
+\index{Format@{Format}!getFormatter@{getFormatter}}
+\index{getFormatter@{getFormatter}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{getFormatter()}{getFormatter()}}
+{\footnotesize\ttfamily get\+Formatter (\begin{DoxyParamCaption}\item[{string}]{\$mime }\end{DoxyParamCaption})}
+
+A Factory method to return the appropriate formatter for the given mime type.
+
+\begin{DoxyReturn}{Returns}
+Formatter\+Interface
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000015}{Deprecated}}]This is an alias of {\ttfamily \textbackslash{}Code\+Igniter\textbackslash{}\mbox{\hyperlink{class_config_1_1_format}{Format}}\textbackslash{}\mbox{\hyperlink{class_config_1_1_format_ac6341d2788904fc2d43d12853fa22f78}{Format\+::get\+Formatter}}}. Use that instead. \end{DoxyRefDesc}
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{class_config_1_1_format_a86021fca8f7ec919dd5328b7503498db}\label{class_config_1_1_format_a86021fca8f7ec919dd5328b7503498db}} 
+\index{Format@{Format}!\$formatterOptions@{\$formatterOptions}}
+\index{\$formatterOptions@{\$formatterOptions}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{\$formatterOptions}{$formatterOptions}}
+{\footnotesize\ttfamily \$formatter\+Options}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= [}
+\DoxyCodeLine{        \textcolor{stringliteral}{'application/json'} => JSON\_UNESCAPED\_UNICODE | JSON\_UNESCAPED\_SLASHES,}
+\DoxyCodeLine{        \textcolor{stringliteral}{'application/xml'}  => 0,}
+\DoxyCodeLine{        \textcolor{stringliteral}{'text/xml'}         => 0,}
+\DoxyCodeLine{    ]}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_config_1_1_format_a1e1b0937073db0198a45136adf2d296c}\label{class_config_1_1_format_a1e1b0937073db0198a45136adf2d296c}} 
+\index{Format@{Format}!\$formatters@{\$formatters}}
+\index{\$formatters@{\$formatters}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{\$formatters}{$formatters}}
+{\footnotesize\ttfamily \$formatters}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= [}
+\DoxyCodeLine{        \textcolor{stringliteral}{'application/json'} => \textcolor{stringliteral}{'CodeIgniter\(\backslash\)Format\(\backslash\)JSONFormatter'},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'application/xml'}  => \textcolor{stringliteral}{'CodeIgniter\(\backslash\)Format\(\backslash\)XMLFormatter'},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'text/xml'}         => \textcolor{stringliteral}{'CodeIgniter\(\backslash\)Format\(\backslash\)XMLFormatter'},}
+\DoxyCodeLine{    ]}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_config_1_1_format_a397eb59916389cf3a17c0f3fccf3b3ea}\label{class_config_1_1_format_a397eb59916389cf3a17c0f3fccf3b3ea}} 
+\index{Format@{Format}!\$supportedResponseFormats@{\$supportedResponseFormats}}
+\index{\$supportedResponseFormats@{\$supportedResponseFormats}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{\$supportedResponseFormats}{$supportedResponseFormats}}
+{\footnotesize\ttfamily \$supported\+Response\+Formats}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= [}
+\DoxyCodeLine{        \textcolor{stringliteral}{'application/json'},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'application/xml'}, }
+\DoxyCodeLine{        \textcolor{stringliteral}{'text/xml'}, }
+\DoxyCodeLine{    ]}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+app/\+Config/Format.\+php\end{DoxyCompactItemize}

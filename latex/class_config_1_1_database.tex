@@ -1,0 +1,90 @@
+\hypertarget{class_config_1_1_database}{}\doxysection{Database Class Reference}
+\label{class_config_1_1_database}\index{Database@{Database}}
+Inheritance diagram for Database\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_config_1_1_database}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_config_1_1_database_aa28ca96ed973b834223c9998c2522663}\label{class_config_1_1_database_aa28ca96ed973b834223c9998c2522663}} 
+{\bfseries \$files\+Path} = APPPATH . \textquotesingle{}\mbox{\hyperlink{class_config_1_1_database}{Database}}\textquotesingle{} . DIRECTORY\+\_\+\+SEPARATOR
+\item 
+\mbox{\Hypertarget{class_config_1_1_database_af7643b4ba4cedfe78d6b7331064975ab}\label{class_config_1_1_database_af7643b4ba4cedfe78d6b7331064975ab}} 
+{\bfseries \$default\+Group} = \textquotesingle{}default\textquotesingle{}
+\item 
+\mbox{\hyperlink{class_config_1_1_database_a9df479534ecf05fd7575c6275d381687}{\$default}}
+\item 
+\mbox{\hyperlink{class_config_1_1_database_a6d7f4b753e7eb18b328a7eeba5e0094f}{\$tests}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_config_1_1_database}{Database}} Configuration 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{class_config_1_1_database_a9df479534ecf05fd7575c6275d381687}\label{class_config_1_1_database_a9df479534ecf05fd7575c6275d381687}} 
+\index{Database@{Database}!\$default@{\$default}}
+\index{\$default@{\$default}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{\$default}{$default}}
+{\footnotesize\ttfamily \$default}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= [}
+\DoxyCodeLine{        \textcolor{stringliteral}{'DSN'}      => \textcolor{stringliteral}{''},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'hostname'} => \textcolor{stringliteral}{'localhost'},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'username'} => \textcolor{stringliteral}{''},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'password'} => \textcolor{stringliteral}{''},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'database'} => \textcolor{stringliteral}{''},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'DBDriver'} => \textcolor{stringliteral}{'MySQLi'},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'DBPrefix'} => \textcolor{stringliteral}{''},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'pConnect'} => \textcolor{keyword}{false},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'DBDebug'}  => (ENVIRONMENT !== \textcolor{stringliteral}{'production'}),}
+\DoxyCodeLine{        \textcolor{stringliteral}{'charset'}  => \textcolor{stringliteral}{'utf8'},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'DBCollat'} => \textcolor{stringliteral}{'utf8\_general\_ci'},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'swapPre'}  => \textcolor{stringliteral}{''},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'encrypt'}  => \textcolor{keyword}{false},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'compress'} => \textcolor{keyword}{false},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'strictOn'} => \textcolor{keyword}{false},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'failover'} => [],}
+\DoxyCodeLine{        \textcolor{stringliteral}{'port'}     => 3306,}
+\DoxyCodeLine{    ]}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_config_1_1_database_a6d7f4b753e7eb18b328a7eeba5e0094f}\label{class_config_1_1_database_a6d7f4b753e7eb18b328a7eeba5e0094f}} 
+\index{Database@{Database}!\$tests@{\$tests}}
+\index{\$tests@{\$tests}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{\$tests}{$tests}}
+{\footnotesize\ttfamily \$tests}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= [}
+\DoxyCodeLine{        \textcolor{stringliteral}{'DSN'}      => \textcolor{stringliteral}{''},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'hostname'} => \textcolor{stringliteral}{'127.0.0.1'},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'username'} => \textcolor{stringliteral}{''},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'password'} => \textcolor{stringliteral}{''},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'database'} => \textcolor{stringliteral}{':memory:'},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'DBDriver'} => \textcolor{stringliteral}{'SQLite3'},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'DBPrefix'} => \textcolor{stringliteral}{'db\_'},  }
+\DoxyCodeLine{        \textcolor{stringliteral}{'pConnect'} => \textcolor{keyword}{false},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'DBDebug'}  => (ENVIRONMENT !== \textcolor{stringliteral}{'production'}),}
+\DoxyCodeLine{        \textcolor{stringliteral}{'charset'}  => \textcolor{stringliteral}{'utf8'},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'DBCollat'} => \textcolor{stringliteral}{'utf8\_general\_ci'},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'swapPre'}  => \textcolor{stringliteral}{''},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'encrypt'}  => \textcolor{keyword}{false},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'compress'} => \textcolor{keyword}{false},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'strictOn'} => \textcolor{keyword}{false},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'failover'} => [],}
+\DoxyCodeLine{        \textcolor{stringliteral}{'port'}     => 3306,}
+\DoxyCodeLine{    ]}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+app/\+Config/Database.\+php\end{DoxyCompactItemize}

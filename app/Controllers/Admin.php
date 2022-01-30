@@ -22,7 +22,25 @@ class Admin extends BaseController
     public function index()
     {
         if (isset($_SESSION['admin_logged_in'])) {
-            echo view('admin/dashboard.php');
+            echo view('templates/admin_header');
+            echo view('admin/dashboard');
+            echo view('templates/admin_footer');
+        } else {
+            return redirect()->to('admin/login');
+        }
+    }
+
+    /**
+     * Function that display the new upload page
+     *
+     * @return void
+     */
+    public function new_upload()
+    {
+        if (isset($_SESSION['admin_logged_in'])) {
+            echo view('templates/admin_header');
+            echo view('admin/new_upload');
+            echo view('templates/admin_footer');
         } else {
             return redirect()->to('admin/login');
         }
@@ -73,4 +91,17 @@ class Admin extends BaseController
             return redirect()->to('admin/login/');
         }
     }
+
+    /**
+     * Admin logout function. The function will destroy all sessions using
+     *  session_destroy
+     *
+     * @return mixed
+     */
+    public function logout()
+    {
+        session_destroy();
+        return redirect()->to('admin/login');
+    }
+
 }

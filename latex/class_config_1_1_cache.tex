@@ -1,0 +1,113 @@
+\hypertarget{class_config_1_1_cache}{}\doxysection{Cache Class Reference}
+\label{class_config_1_1_cache}\index{Cache@{Cache}}
+Inheritance diagram for Cache\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_config_1_1_cache}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_config_1_1_cache_a9285a7f684c72e9bb78fdef1bcbe3fd0}\label{class_config_1_1_cache_a9285a7f684c72e9bb78fdef1bcbe3fd0}} 
+{\bfseries \$handler} = \textquotesingle{}file\textquotesingle{}
+\item 
+\mbox{\Hypertarget{class_config_1_1_cache_ad457420be882aadc41bc6a764c9cee39}\label{class_config_1_1_cache_ad457420be882aadc41bc6a764c9cee39}} 
+{\bfseries \$backup\+Handler} = \textquotesingle{}dummy\textquotesingle{}
+\item 
+\mbox{\Hypertarget{class_config_1_1_cache_ae3c2b83500766a30f8d7482e040a55e1}\label{class_config_1_1_cache_ae3c2b83500766a30f8d7482e040a55e1}} 
+{\bfseries \$store\+Path} = WRITEPATH . \textquotesingle{}cache/\textquotesingle{}
+\item 
+\mbox{\Hypertarget{class_config_1_1_cache_a25be35dde1cb33569e96b49f0ad430b3}\label{class_config_1_1_cache_a25be35dde1cb33569e96b49f0ad430b3}} 
+{\bfseries \$cache\+Query\+String} = false
+\item 
+\mbox{\Hypertarget{class_config_1_1_cache_a09e8cf95b9d29955a0bfabca9b420edc}\label{class_config_1_1_cache_a09e8cf95b9d29955a0bfabca9b420edc}} 
+{\bfseries \$prefix} = \textquotesingle{}\textquotesingle{}
+\item 
+\mbox{\Hypertarget{class_config_1_1_cache_a67100cf1dbc25143fee2b7249f4f5242}\label{class_config_1_1_cache_a67100cf1dbc25143fee2b7249f4f5242}} 
+{\bfseries \$ttl} = 60
+\item 
+\mbox{\Hypertarget{class_config_1_1_cache_a1d040d4be700266fdfca2c1ddcf5fa9e}\label{class_config_1_1_cache_a1d040d4be700266fdfca2c1ddcf5fa9e}} 
+{\bfseries \$reserved\+Characters} = \textquotesingle{}\{\}()/\textbackslash{}@\+:\textquotesingle{}
+\item 
+\mbox{\hyperlink{class_config_1_1_cache_aa1bfbd27060176201b271918dff57e8f}{\$file}}
+\item 
+\mbox{\hyperlink{class_config_1_1_cache_ad3517bdc06c5d7f8fe82a5ac13ac1b3c}{\$memcached}}
+\item 
+\mbox{\hyperlink{class_config_1_1_cache_a7e7e7dbbfe52839237c99924e35f2717}{\$redis}}
+\item 
+\mbox{\hyperlink{class_config_1_1_cache_a719a94048bb0df1d407e08dbc6075f2b}{\$valid\+Handlers}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{class_config_1_1_cache_aa1bfbd27060176201b271918dff57e8f}\label{class_config_1_1_cache_aa1bfbd27060176201b271918dff57e8f}} 
+\index{Cache@{Cache}!\$file@{\$file}}
+\index{\$file@{\$file}!Cache@{Cache}}
+\doxysubsubsection{\texorpdfstring{\$file}{$file}}
+{\footnotesize\ttfamily \$file}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= [}
+\DoxyCodeLine{        \textcolor{stringliteral}{'storePath'} => WRITEPATH . \textcolor{stringliteral}{'cache/'},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'mode'}      => 0640,}
+\DoxyCodeLine{    ]}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_config_1_1_cache_ad3517bdc06c5d7f8fe82a5ac13ac1b3c}\label{class_config_1_1_cache_ad3517bdc06c5d7f8fe82a5ac13ac1b3c}} 
+\index{Cache@{Cache}!\$memcached@{\$memcached}}
+\index{\$memcached@{\$memcached}!Cache@{Cache}}
+\doxysubsubsection{\texorpdfstring{\$memcached}{$memcached}}
+{\footnotesize\ttfamily \$memcached}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= [}
+\DoxyCodeLine{        \textcolor{stringliteral}{'host'}   => \textcolor{stringliteral}{'127.0.0.1'},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'port'}   => 11211,}
+\DoxyCodeLine{        \textcolor{stringliteral}{'weight'} => 1,}
+\DoxyCodeLine{        \textcolor{stringliteral}{'raw'}    => \textcolor{keyword}{false},}
+\DoxyCodeLine{    ]}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_config_1_1_cache_a7e7e7dbbfe52839237c99924e35f2717}\label{class_config_1_1_cache_a7e7e7dbbfe52839237c99924e35f2717}} 
+\index{Cache@{Cache}!\$redis@{\$redis}}
+\index{\$redis@{\$redis}!Cache@{Cache}}
+\doxysubsubsection{\texorpdfstring{\$redis}{$redis}}
+{\footnotesize\ttfamily \$redis}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= [}
+\DoxyCodeLine{        \textcolor{stringliteral}{'host'}     => \textcolor{stringliteral}{'127.0.0.1'},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'password'} => \textcolor{keyword}{null},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'port'}     => 6379,}
+\DoxyCodeLine{        \textcolor{stringliteral}{'timeout'}  => 0,}
+\DoxyCodeLine{        \textcolor{stringliteral}{'database'} => 0,}
+\DoxyCodeLine{    ]}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_config_1_1_cache_a719a94048bb0df1d407e08dbc6075f2b}\label{class_config_1_1_cache_a719a94048bb0df1d407e08dbc6075f2b}} 
+\index{Cache@{Cache}!\$validHandlers@{\$validHandlers}}
+\index{\$validHandlers@{\$validHandlers}!Cache@{Cache}}
+\doxysubsubsection{\texorpdfstring{\$validHandlers}{$validHandlers}}
+{\footnotesize\ttfamily \$valid\+Handlers}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= [}
+\DoxyCodeLine{        \textcolor{stringliteral}{'dummy'}     => DummyHandler::class,}
+\DoxyCodeLine{        \textcolor{stringliteral}{'file'}      => FileHandler::class,}
+\DoxyCodeLine{        \textcolor{stringliteral}{'memcached'} => MemcachedHandler::class,}
+\DoxyCodeLine{        \textcolor{stringliteral}{'predis'}    => PredisHandler::class,}
+\DoxyCodeLine{        \textcolor{stringliteral}{'redis'}     => RedisHandler::class,}
+\DoxyCodeLine{        \textcolor{stringliteral}{'wincache'}  => WincacheHandler::class,}
+\DoxyCodeLine{    ]}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+app/\+Config/Cache.\+php\end{DoxyCompactItemize}

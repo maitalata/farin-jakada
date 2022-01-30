@@ -16,7 +16,7 @@ use CodeIgniter\Model;
 class AdminModel extends Model
 {
     /**
-     * Function that returns the hashed password of administrators or an e,pty string
+     * Function that returns the hashed password of administrators or an emspty string
      *
      * @param mixed $email administrator's email address
      *
@@ -50,14 +50,16 @@ class AdminModel extends Model
     }
 
     /**
-     * Function that get admin email and return all the details associated with that email
+     * Function that get admin email and return all the details associated with that
+     * email
      *
-     * @param mixed $email
+     * @param mixed $email Administrator's email address
+     * 
      * @return object
      */
     public function getAdminDetails($email)
     {
-        $builder = $this->db->table('applicants');
+        $builder = $this->db->table('administrators');
         $query = $builder->getWhere(['email' => $email]);
         return $query->getRow();
     }
