@@ -63,5 +63,9 @@ class AdminModel extends Model
         $query = $builder->getWhere(['email' => $email]);
         return $query->getRow();
     }
+    public function saveUpload($data)
+    {
+        $this->db->table('uploads')->insert($data);
+    }
 
 }

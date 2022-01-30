@@ -38,6 +38,7 @@ class Admin extends BaseController
     public function new_upload()
     {
         if (isset($_SESSION['admin_logged_in'])) {
+            //dd(phpinfo());
             echo view('templates/admin_header');
             echo view('admin/new_upload');
             echo view('templates/admin_footer');
@@ -92,9 +93,58 @@ class Admin extends BaseController
         }
     }
 
+    public function save_upload()
+    {
+        helper(['form', 'url']);
+
+        $validation = \Config\Services::validation();
+
+        $validation->setRules(
+            [
+                'category' => ['label' => 'Category', 'rules' => 'required'],
+                'description' => ['label' => 'Description', 'rules' => 'required'],
+                'uploaded_file' => [
+                    'label' => 'Uploaded File',
+                    'rules' => 'uploaded[uploaded_file]'
+                    . '|mime_in[uploaded_file,audio/mpeg,audio/mp3]'
+                    . '|max_size[uploaded_file,20000]',
+                ]
+            ]);
+
+        if ($validation->withRequest($this->request)->run()) {
+
+            $img = $this->request->getFile('uploaded_file');
+
+            if (!$img->hasMoved()){
+                //$filepath = WRITEPATH . 'uploads/users/' . $img->store();
+                $newName = $_SESSION['current_admin_id'] . "_.mp3";
+                $img->move(
+                    'uploads/audio/', $newName);
+            } else {
+                $this->session->setFlashdata('errors', array('File cannot be moved'));
+                return redirect()->to('admin/new_upload');
+            }
+
+            $data = [
+                'category' => $this->request->getVar('category'),
+                'description' => $this->request->getVar('description')
+            ];   
+
+            $this->admin_model->saveUpload($data);
+
+            $this->session->setFlashdata('success', 'Item uploaded successfully');
+            return redirect()->to('admin/new_upload');
+
+        } else {
+            $this->session->setFlashdata('errors', $validation->getErrors());
+            return redirect()->to('admin/new_upload');
+        }
+
+    }
+
     /**
      * Admin logout function. The function will destroy all sessions using
-     *  session_destroy
+     * session_destroy
      *
      * @return mixed
      */
