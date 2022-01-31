@@ -16,7 +16,8 @@ use CodeIgniter\Model;
 class AdminModel extends Model
 {
     /**
-     * Function that returns the hashed password of administrators or an emspty string
+     * Function that returns the hashed password of administrators or an emspty
+     * string
      *
      * @param mixed $email administrator's email address
      *
@@ -64,6 +65,13 @@ class AdminModel extends Model
         return $query->getRow();
     }
 
+    public function getAllUploads()
+    {
+        $builder = $this->db->table('uploads');
+        $query = $builder->get();
+        return $query->getResult();
+    }
+
     /**
      * Saves an item upload data to the database.
      *
@@ -81,10 +89,14 @@ class AdminModel extends Model
      * 
      * @return void
      */
-    public function getTotalUploads()
+    public function getLastId()
     {
         $builder = $this->db->table('uploads');
-        return $builder->countAllResults();
+        $builder->orderBy('id', 'DESC');
+        $builder->limit(1, 0);
+        $query = $builder->get();
+        $last_row = $query->getRow();
+        return $last_row->id;
     }
 
 }

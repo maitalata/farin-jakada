@@ -19,7 +19,7 @@ class Home extends BaseController
      *
      * @return mixed
      */
-    public function index()
+    public function index($offset = 0)
     {
         echo view('templates/header');
         echo view('home');

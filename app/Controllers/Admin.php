@@ -51,7 +51,9 @@ class Admin extends BaseController
     {
         if (isset($_SESSION['admin_logged_in'])) {
             //dd(phpinfo());
-            echo view('templates/admin_header');
+            $data['uploads'] = $this->admin_model->getAllUploads();
+
+            echo view('templates/admin_header', $data);
             echo view('admin/uploads');
             echo view('templates/admin_footer');
         } else {
@@ -137,7 +139,7 @@ class Admin extends BaseController
 
             if (!$img->hasMoved()){
                 //$filepath = WRITEPATH . 'uploads/users/' . $img->store();
-                $total_uploads = $this->admin_model->getTotalUploads();
+                $total_uploads = $this->admin_model->getLastId();
                 $total_uploads++;
                 $newName = "upload_".$total_uploads. "_.mp3";
                 $img->move(
