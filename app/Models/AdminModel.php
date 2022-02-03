@@ -95,8 +95,14 @@ class AdminModel extends Model
         $builder->orderBy('id', 'DESC');
         $builder->limit(1, 0);
         $query = $builder->get();
-        $last_row = $query->getRow();
-        return $last_row->id;
+        if($builder->countAllResults() == 0)
+        {
+            return 0;
+        } else {
+            $last_row = $query->getRow();
+            return $last_row->id;
+        }
+        
     }
 
 }

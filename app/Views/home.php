@@ -3,42 +3,33 @@
 			<div class="content-grids">
 				<div class="col-md-8 content-main">
 					<div class="content-grid">
-						<div class="content-grid-info">
-							<img src="images/al_posts_images_1.jpeg" alt="" />
-							<div class="post-info">
-								<h4><a href="single.html">Lorem ipsum dolor sit amet</a> July 30, 2014 / 27 Comments</h4>
-								<p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis.</p>
-								<p>
-								<audio controls>
-								<source src="<?= base_url('uploads/audio/upload_1_.mp3') ?>" type="audio/mpeg">
-								Your browser does not support the audio element.
-								</audio>
-								</p>
-								<a href="single.html"><span></span>READ MORE</a>
+						<?php foreach($uploads as $upload): ?>
+							<div class="content-grid-info">
+								<img src="images/<?= mt_rand(1,4) ?>.jpeg" alt="" />
+								<div class="post-info">
+									<?php
+										$time = $Time::parse($upload->added_on, 'Africa/Lagos');
+
+									?>
+									<h4><a href="#"><?= $upload->category ?></a> <?= $time->humanize() ?></h4>
+									<p><?= nl2br($upload->description) ?></p>
+									<p>
+									<audio controls>
+									<source src="<?= base_url('uploads/audio/upload_'.$upload->id.'_.mp3') ?>" type="audio/mpeg">
+									Your browser does not support the audio element.
+									</audio>
+									</p>
+									<!-- <a href="single.html"><span></span>READ MORE</a> -->
+								</div>
 							</div>
-						</div>
-						<div class="content-grid-info">
-							<img src="images/post2.jpg" alt="" />
-							<div class="post-info">
-								<h4><a href="single.html">Lorem ipsum dolor sit amet</a> July 30, 2014 / 27 Comments</h4>
-								<p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis.</p>
-								<a href="single.html"><span></span>READ MORE</a>
-							</div>
-						</div>
-						<div class="content-grid-info">
-							<img src="images/post3.jpg" alt="" />
-							<div class="post-info">
-								<h4><a href="single.html">Lorem ipsum dolor sit amet</a> July 30, 2014 / 27 Comments</h4>
-								<p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis.</p>
-								<a href="single.html"><span></span>READ MORE</a>
-							</div>
-						</div>
+						<?php endforeach; ?>
+						
 
 					</div>
 				</div>
 				<div class="col-md-4 content-right">
 					<div class="recent">
-						<h3>RECENT POSTS</h3>
+						<h3>POPULAR POSTS</h3>
 						<ul>
 							<li><a href="#">Aliquam tincidunt mauris</a></li>
 							<li><a href="#">Vestibulum auctor dapibus lipsum</a></li>
@@ -47,30 +38,18 @@
 						</ul>
 					</div>
 					<div class="comments">
-						<h3>RECENT COMMENTS</h3>
+						<h3>CAREGROIES</h3>
 						<ul>
-							<li><a href="#">Amada Doe </a> on <a href="#">Hello World!</a></li>
-							<li><a href="#">Peter Doe </a> on <a href="#"> Photography</a></li>
-							<li><a href="#">Steve Roberts </a> on <a href="#">HTML5/CSS3</a></li>
+							<li><a href="#">Farin Jakada </a></li>
+							<li><a href="#">Riyadus Salihin </a></li>
 						</ul>
 					</div>
 					<div class="clearfix"></div>
 					<div class="archives">
-						<h3>ARCHIVES</h3>
+						<h3>POST BY VOLUME</h3>
 						<ul>
-							<li><a href="#">October 2013</a></li>
-							<li><a href="#">September 2013</a></li>
-							<li><a href="#">August 2013</a></li>
-							<li><a href="#">July 2013</a></li>
-						</ul>
-					</div>
-					<div class="categories">
-						<h3>CATEGORIES</h3>
-						<ul>
-							<li><a href="#">Vivamus vestibulum nulla</a></li>
-							<li><a href="#">Integer vitae libero ac risus e</a></li>
-							<li><a href="#">Vestibulum commo</a></li>
-							<li><a href="#">Cras iaculis ultricies</a></li>
+							<li><a href="#">Volume 1</a></li>
+							<li><a href="#">Volume 2</a></li>
 						</ul>
 					</div>
 					<div class="clearfix"></div>

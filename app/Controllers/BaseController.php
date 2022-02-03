@@ -38,6 +38,7 @@ class BaseController extends Controller
      */
     protected $helpers = [];
     protected $admin_model;
+    protected $home_model;
     protected $session;
     protected $db;
 
@@ -55,5 +56,6 @@ class BaseController extends Controller
         $this->db = db_connect();
         $this->session = session();
         $this->admin_model = new Models\AdminModel();
+        $this->home_model = new Models\HomeModel();
     }
 }

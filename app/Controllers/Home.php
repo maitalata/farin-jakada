@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use CodeIgniter\I18n\Time;
+
 /**
  * Home Controller. Contains functions for returning the landing page, search
  * handlers and newsletters update subscriptions 
@@ -21,7 +23,10 @@ class Home extends BaseController
      */
     public function index($offset = 0)
     {
-        echo view('templates/header');
+        $data['uploads'] = $this->home_model->getAllUploads();
+        $data['Time'] = Time::class;
+
+        echo view('templates/header', $data);
         echo view('home');
         echo view('templates/footer');
     }

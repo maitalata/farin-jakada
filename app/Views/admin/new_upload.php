@@ -62,6 +62,19 @@
                                         </select>    
                                     </div>
                                     <div class="form-group has-success">
+                                        <label for="cc-name"  class="control-label mb-1">Volume</label>
+                                        <select class="form-control" name="category" required>
+                                            <option>Select</option>
+                                            <option value="1" >1</option>
+                                            <option value="1" >2</option>
+                                            <option value="1" >3</option>
+                                            <option value="1" >4</option>
+                                            <option value="1" >5</option>
+                                            <option value="1" >6</option>
+                                            <option value="1" >7</option>
+                                        </select>    
+                                    </div>
+                                    <div class="form-group has-success">
                                         <label for="cc-name" class="control-label mb-1">Description</label>
                                         <textarea class="form-control" name="description" style="resize:none;" rows="5" ></textarea>  
                                     </div>
