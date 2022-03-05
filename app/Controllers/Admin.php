@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\AdminModel;
+
 /**
  * Admin Controller. Handles all administrators functions, such as login handler,
  * file upload, admin password changes and other functionalities
@@ -61,6 +63,17 @@ class Admin extends BaseController
         }
     }
 
+    public function addAdmin()
+    {
+        if (isset($_SESSION['admin_logged_in'])) {
+            echo view('templates/admin_header');
+            echo view('admin/add_new_admin');
+            echo view('templates/admin_footer');
+        } else {
+            return redirect()->to('admin/login');
+        }
+    }
+
     /**
      * Login page. The function returns the login page for the administrator's login.
      *
@@ -83,18 +96,15 @@ class Admin extends BaseController
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
 
-        $hash = $this->admin_model->getHashedPassword($email);
-        $check_login = $this->admin_model->checkLogin($email);
+        $user = $this->admin_model->where('email', $email)->first();
+        if ($user && password_verify($password, $user->password)) {
 
-        if ($check_login && password_verify($password, $hash)) {
-            $admin_details = $this->admin_model->getAdminDetails($email);
             $this->session->set('current_adm9n', $email);
             $this->session->set(
                 'current_admin_fullname',
-                $admin_details->first_name . ' ' . $admin_details->last_name
+                $user->first_name . ' ' . $user->last_name
             );
-            $this->session->set('current_admin_id', $admin_details->id);
-
+            $this->session->set('current_admin_id', $user->id);
             $this->session->set('admin_logged_in', true);
             return redirect()->to('admin/');
 
@@ -162,6 +172,22 @@ class Admin extends BaseController
         } else {
             $this->session->setFlashdata('errors', $validation->getErrors());
             return redirect()->to('admin/new_upload');
+        }
+
+    }
+
+    public function saveAdmin()
+    {
+        $data = $this->request->getPost();
+
+        $user = new \App\Entities\Admin();
+        $user->fill($data);
+        if ($this->admin_model->save($user)) {
+            $this->session->setFlashdata('success', 'Admin Saved successfully');
+            return redirect()->to('admin/addAdmin');
+        } else {
+            $this->session->setFlashdata('errors', $this->admin_model->errors());
+            return redirect()->to('admin/addAdmin');
         }
 
     }

@@ -25,7 +25,4 @@ class HomeModel extends Model
         return $query->getResult();
     }
 
-
-
-
 }

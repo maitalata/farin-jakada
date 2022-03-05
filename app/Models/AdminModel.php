@@ -15,61 +15,52 @@ use CodeIgniter\Model;
  */
 class AdminModel extends Model
 {
-    /**
-     * Function that returns the hashed password of administrators or an emspty
-     * string
-     *
-     * @param mixed $email administrator's email address
-     *
-     * @return empty|string the hashed password of the admin
-     */
-    public function getHashedPassword($email)
-    {
-        $builder = $this->db->table('administrators');
-        $query = $builder->getWhere(['email' => $email]);
-        $row = $query->getRow();
-        if ($row) {
-            return $row->password;
-        } else {
-            return '';
-        }
-    }
 
-    /**
-     * This functions accept's administrator's email and return 1 if the
-     * administrator exist, otherwise it returns 0.
-     *
-     * @param mixed $email administrator's email
-     *
-     * @return int
-     */
-    public function checkLogin($email)
-    {
-        $builder = $this->db->table('administrators');
-        $builder->getWhere(['email' => $email]);
-        return $builder->countAllResults();
-    }
+    protected $table      = 'administrators';
+    protected $primaryKey = 'id';
 
-    /**
-     * Function that get admin email and return all the details associated with that
-     * email
-     *
-     * @param mixed $email Administrator's email address
-     * 
-     * @return object
-     */
-    public function getAdminDetails($email)
-    {
-        $builder = $this->db->table('administrators');
-        $query = $builder->getWhere(['email' => $email]);
-        return $query->getRow();
-    }
+    protected $useAutoIncrement = true;
+
+    protected $returnType     = \App\Entities\Admin::class;
+    protected $useSoftDeletes = true;
+
+    protected $allowedFields = ['first_name', 'last_name', 'email', 'password'];
+
+    protected $useTimestamps = true;
+    protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
+
+    protected $validationRules    = [
+        'first_name' => 'required|min_length[2]',
+        'last_name'  => 'required|min_length[2]',
+        'email'      => 'required|valid_email|is_unique[administrators.email]',
+        'password'   => 'required|min_length[8]',
+        'confirm'    => 'required_with[password]|matches[password]'
+    ];
+    protected $validationMessages = [];
+    protected $skipValidation     = false; 
+
+    protected $beforeInsert = ['hashPassword'];
+   
 
     public function getAllUploads()
     {
         $builder = $this->db->table('uploads');
         $query = $builder->get();
         return $query->getResult();
+    }
+
+    public function hashPassword(array $data)
+    {
+        if (! isset($data['data']['password'])) {
+            return $data;
+        }
+    
+        $data['data']['password'] = password_hash($data['data']['password'], PASSWORD_DEFAULT);
+        //unset($data['data']['password']);
+    
+        return $data;
     }
 
     /**
