@@ -49,14 +49,14 @@
                                 <?php }?>
                                 </div>
                                 <hr>
-                                <form action="<?= base_url('admin/saveAdmin') ?>" enctype="multipart/form-data" method="post" novalidate="novalidate">
+                                <form action="<?= base_url('admin/saveAdmin') ?>" method="post" novalidate="novalidate">
                                     <div class="form-group">
-                                        <label for="first_name" class="control-label mb-1">Admin First name</label>
+                                        <label for="first_name" class="control-label mb-1">Admin First Name</label>
                                         <input id="first_name" name="first_name" type="text" class="form-control" aria-required="true" aria-invalid="false" >
                                     </div> 
 
                                     <div class="form-group">
-                                        <label for="last_name" class="control-label mb-1">Admin Last name</label>
+                                        <label for="last_name" class="control-label mb-1">Admin Last Name</label>
                                         <input id="last_name" name="last_name" type="text" class="form-control" aria-required="true" aria-invalid="false" >
                                     </div> 
 

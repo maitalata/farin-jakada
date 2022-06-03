@@ -58,7 +58,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-wrench"></i>Settings</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-lock"></i><a href="<?= base_url('admin/addAdmin') ?>">Add New Admin</a></li>
-                            <li><i class="fa fa-lock"></i><a href="tables-basic.html">Change Password</a></li>
+                            <li><i class="fa fa-lock"></i><a href="<?= base_url('admin/changePassword') ?>">Change Password</a></li>
                             <li><i class="fa fa-user"></i><a href="tables-data.html">Update Profile</a></li>
                         </ul>
                     </li>

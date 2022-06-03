@@ -42,7 +42,7 @@ class AdminModel extends Model
     protected $skipValidation     = false; 
 
     protected $beforeInsert = ['hashPassword'];
-   
+    protected $beforeUpdate = ['hashPassword'];   
 
     public function getAllUploads()
     {

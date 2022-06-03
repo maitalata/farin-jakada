@@ -63,6 +63,17 @@ class Admin extends BaseController
         }
     }
 
+    public function changePassword()
+    {
+        if (isset($_SESSION['admin_logged_in'])) {
+            echo view('templates/admin_header');
+            echo view('admin/change_password');
+            echo view('templates/admin_footer');
+        } else {
+            return redirect()->to('admin/login');
+        }
+    }
+
     public function addAdmin()
     {
         if (isset($_SESSION['admin_logged_in'])) {
@@ -99,7 +110,7 @@ class Admin extends BaseController
         $user = $this->admin_model->where('email', $email)->first();
         if ($user && password_verify($password, $user->password)) {
 
-            $this->session->set('current_adm9n', $email);
+            $this->session->set('current_admin', $email);
             $this->session->set(
                 'current_admin_fullname',
                 $user->first_name . ' ' . $user->last_name
@@ -107,7 +118,6 @@ class Admin extends BaseController
             $this->session->set('current_admin_id', $user->id);
             $this->session->set('admin_logged_in', true);
             return redirect()->to('admin/');
-
         } else {
             $this->session->setFlashdata(
                 'errors', [
@@ -162,7 +172,7 @@ class Admin extends BaseController
             $data = [
                 'category' => $this->request->getVar('category'),
                 'description' => $this->request->getVar('description')
-            ];   
+            ];
 
             $this->admin_model->saveUpload($data);
 
@@ -172,6 +182,28 @@ class Admin extends BaseController
         } else {
             $this->session->setFlashdata('errors', $validation->getErrors());
             return redirect()->to('admin/new_upload');
+        }
+
+    }
+
+    public function updatePassword()
+    {
+        $old_password = $this->request->getPost('old_password');
+
+        $user = $this->admin_model->where('email', $_SESSION['current_admin'])->first();
+
+        if (password_verify($old_password, $user->password)) {
+            $user->password = $this->request->getPost('password');
+            if ($this->admin_model->save($user)) {
+                $this->session->setFlashdata('success', 'Admin Saved successfully');
+                return redirect()->to('admin/changePassword');
+            } else {
+                $this->session->setFlashdata('errors', $this->admin_model->errors());
+                return redirect()->to('admin/changePassword');
+            }
+        } else {
+            $this->session->setFlashdata('errors', array('Incorrect Old Password'));
+            return redirect()->to('admin/changePassword');
         }
 
     }

@@ -19,7 +19,7 @@ class HomeModel extends Model
     public function getAllUploads()
     {
         $builder = $this->db->table('uploads');
-        $builder->orderBy('added_on', 'DESC');
+        $builder->orderBy('created_at', 'DESC');
         $query = $builder->get();
 
         return $query->getResult();

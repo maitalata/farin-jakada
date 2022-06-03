@@ -8,7 +8,7 @@
 								<img src="images/<?= mt_rand(1,4) ?>.jpeg" alt="" />
 								<div class="post-info">
 									<?php
-										$time = $Time::parse($upload->added_on, 'Africa/Lagos');
+										$time = $Time::parse($upload->created_at, 'Africa/Lagos'); 
 
 									?>
 									<h4><a href="#"><?= $upload->category ?></a> <?= $time->humanize() ?></h4>

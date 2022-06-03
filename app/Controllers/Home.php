@@ -23,16 +23,16 @@ class Home extends BaseController
      */
     public function index($offset = 0)
     {
-        // $data['uploads'] = $this->home_model->getAllUploads();
-        // $data['Time'] = Time::class;
+        $data['uploads'] = $this->home_model->getAllUploads();
+        $data['Time'] = Time::class;
 
-        // echo view('templates/header', $data);
-        // echo view('home');
-        // echo view('templates/footer');
+        echo view('templates/header', $data);
+        echo view('home');
+        echo view('templates/footer');
 
-        $post = $this->postModel->findAll();
-        //echo dd($this->db);
-        echo dd($post);
+        // $post = $this->postModel->findAll();
+        // //echo dd($this->db);
+        // echo dd($post);
     }
 
     public function saver()
