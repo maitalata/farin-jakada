@@ -1,5 +1,13 @@
 <?php
-
+/**
+ * Home controller file
+ * 
+ * @category Controllers
+ * @package  App\Controllers
+ * @author   Umar Sunusi Maitalata <maitalata@gmail.com>
+ * @license  MIT The MIT License (MIT)
+ * @link     https://www.farinjakada.com
+ */
 namespace App\Controllers;
 
 use CodeIgniter\I18n\Time;
@@ -18,8 +26,10 @@ class Home extends BaseController
 {
     /**
      * Index page. The function returns the landing page.
-     *
-     * @return mixed
+     * 
+     * @param mixed $offset offset for pagination
+     * 
+     * @return mixed 
      */
     public function index($offset = 0)
     {
@@ -35,6 +45,11 @@ class Home extends BaseController
         // echo dd($post);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     public function saver()
     {
         // $data['uploads'] = $this->home_model->getAllUploads();

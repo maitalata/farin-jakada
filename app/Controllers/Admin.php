@@ -149,7 +149,7 @@ class Admin extends BaseController
                     'label' => 'Uploaded File',
                     'rules' => 'uploaded[uploaded_file]'
                     . '|mime_in[uploaded_file,audio/mpeg,audio/mp3]'
-                    . '|max_size[uploaded_file,20000]',
+                    . '|max_size[uploaded_file,200000]',
                 ]
             ]);
 
