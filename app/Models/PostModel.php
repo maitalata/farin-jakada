@@ -23,7 +23,7 @@ class PostModel extends Model
     protected $returnType     = \App\Entities\Post::class;
     protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['category', 'description'];
+    protected $allowedFields = ['category', 'volume','description'];
 
     protected $useTimestamps = true;
     protected $createdField  = 'created_at';

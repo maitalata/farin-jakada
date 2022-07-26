@@ -27,7 +27,7 @@
             <div class="col-lg-6 offset-3">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">New Upload</strong>
+                        <strong class="card-title">Edit Upload</strong>
                     </div>
                     <div class="card-body">
                         <!-- Credit Card -->
@@ -49,36 +49,44 @@
                                 <?php }?>
                                 </div>
                                 <hr>
-                                <form action="<?= base_url('admin/save_upload') ?>" enctype="multipart/form-data" method="post" novalidate="novalidate">
+                                <form action="<?= base_url('admin/save_edit') ?>" enctype="multipart/form-data" method="post" novalidate="novalidate">
                                     <div class="form-group">
-                                        <label for="cc-payment" class="control-label mb-1">The Media File</label>
-                                        <input id="cc-pament" name="uploaded_file" type="file" class="form-control" aria-required="true" aria-invalid="false" >
+                                    <audio controls>
+									<source src="<?= base_url('uploads/audio/upload_'.$upload->id.'_.mp3') ?>" type="audio/mpeg">
+									Your browser does not support the audio element.
+									</audio>
                                     </div> 
                                     <div class="form-group has-success">
                                         <label for="category"  class="control-label mb-1">Category</label>
                                         <select class="form-control" name="category" required>
                                             <option>Select</option>
-                                            <option value="Farin Jakada" >Farin Jakada</option>
-                                            <option value="Riyadus Salihin" >Riyadus Salihin</option>   
+                                            <option value="Farin Jakada" <?php echo $upload->category == "Farin Jakada"? 'selected' : ''; ?> >Farin Jakada</option>
+                                            <option value="Riyadus Salihin" <?php echo $upload->category == "Riyadus Salihin"? 'selected' : ''; ?> >Riyadus Salihin</option>   
                                         </select>    
                                     </div>
                                     <div class="form-group has-success">
                                         <label for="volume"  class="control-label mb-1">Volume</label>
                                         <select class="form-control" name="volume" required>
                                             <option>Select</option>
-                                            <option value="1" >1</option>
-                                            <option value="2" >2</option>
-                                            <option value="3" >3</option>
-                                            <option value="4" >4</option>
-                                            <option value="5" >5</option>
-                                            <option value="6" >6</option>
-                                            <option value="7" >7</option>
+                                            <option value="1" <?php echo $upload->volume == "1"? 'selected' : ''; ?>  >1</option>
+                                            <option value="2" <?php echo $upload->volume == "2"? 'selected' : ''; ?> >2</option>
+                                            <option value="3" <?php echo $upload->volume == "3"? 'selected' : ''; ?>   >3</option>
+                                            <option value="4" <?php echo $upload->volume == "4"? 'selected' : ''; ?>  >4</option>
+                                            <option value="6" <?php echo $upload->volume == "5"? 'selected' : ''; ?> >5</option>
+                                            <option value="6" <?php echo $upload->volume == "6"? 'selected' : ''; ?> >6</option>
+                                            <option value="7" <?php echo $upload->volume == "7"? 'selected' : ''; ?> >7</option>
                                         </select>    
                                     </div>
                                     <div class="form-group has-success">
                                         <label for="cc-name" class="control-label mb-1">Description</label>
-                                        <textarea class="form-control" name="description" style="resize:none;" rows="5" ></textarea>  
+                                        <textarea class="form-control" name="description" style="resize:none;" rows="5" ><?php echo $upload->description; ?></textarea>  
                                     </div>
+
+                                    <input 
+                                        type="hidden" 
+                                        name="upload_id" 
+                                        value="<?php echo $upload->id ?>"
+                                    >
                                     
                                    
                                     <div>

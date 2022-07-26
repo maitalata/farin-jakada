@@ -49,6 +49,22 @@ class Admin extends BaseController
         }
     }
 
+    public function edit_upload($upload)
+    {
+        if (isset($_SESSION['admin_logged_in'])) {
+            //dd(phpinfo());
+
+            $data['upload'] = $this->postModel->where('id', $upload)->first();
+ 
+
+            echo view('templates/admin_header', $data);
+            echo view('admin/edit_upload');
+            echo view('templates/admin_footer');
+        } else {
+            return redirect()->to('admin/login');
+        }
+    }
+
     public function uploads()
     {
         if (isset($_SESSION['admin_logged_in'])) {
@@ -171,6 +187,7 @@ class Admin extends BaseController
 
             $data = [
                 'category' => $this->request->getVar('category'),
+                'volume' => $this->request->getVar('volume'),
                 'description' => $this->request->getVar('description')
             ];
 
@@ -184,6 +201,49 @@ class Admin extends BaseController
             return redirect()->to('admin/new_upload');
         }
 
+    }
+
+    public function save_edit()
+    {
+        helper(['form', 'url']);
+
+        //Call the validation library
+        $validation = \Config\Services::validation();
+
+        $validation->setRules(
+            [
+                'category' => ['label' => 'Category', 'rules' => 'required'],
+                'volume' => ['label' => 'Category', 'rules' => 'required'],
+                'description' => ['label' => 'Description', 'rules' => 'required']
+            ]
+        );
+
+        if ($validation->withRequest($this->request)->run()) {
+            $data = [
+                'category' => $this->request->getVar('category'),
+                'volume' => $this->request->getVar('volume'),
+                'description' => $this->request->getVar('description')
+            ];
+
+            $this->postModel->update($this->request->getVar('upload_id'), $data);
+
+            $this->session->setFlashdata('success', 'Item uploaded successfully');
+            return redirect()->to('admin/new_upload');
+
+        } else {
+            $this->session->setFlashdata('errors', $validation->getErrors());
+            return redirect()->to('admin/uploads');
+        }
+
+    }
+
+    public function delete_upload($upload_id)
+    {
+        $this->postModel->where('id', $upload_id)->delete();
+
+        unlink('uploads/audio/upload_'.$upload_id.'_.mp3');
+
+        return redirect()->to('admin/uploads');
     }
 
     public function updatePassword()
