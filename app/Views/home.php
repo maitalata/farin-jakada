@@ -40,8 +40,9 @@
 					<div class="comments">
 						<h3>CAREGROIES</h3>
 						<ul>
-							<li><a href="#">Farin Jakada </a></li>
-							<li><a href="#">Riyadus Salihin </a></li>
+						<?php foreach($categories as $category): ?>
+							<li><a href="#"><?php echo $category->category ?> </a></li>             
+                        <?php endforeach; ?>
 						</ul>
 					</div>
 					<div class="clearfix"></div>

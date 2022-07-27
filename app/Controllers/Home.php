@@ -37,6 +37,8 @@ class Home extends BaseController
         $data['uploads'] = $this->home_model->getAllUploads();
         $data['Time'] = Time::class;
 
+        $data['categories'] = $this->admin_model->get_categories();
+
         echo view('templates/header', $data);
         echo view('home');
         echo view('templates/footer');

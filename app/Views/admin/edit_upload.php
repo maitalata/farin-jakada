@@ -60,8 +60,10 @@
                                         <label for="category"  class="control-label mb-1">Category</label>
                                         <select class="form-control" name="category" required>
                                             <option>Select</option>
-                                            <option value="Farin Jakada" <?php echo $upload->category == "Farin Jakada"? 'selected' : ''; ?> >Farin Jakada</option>
-                                            <option value="Riyadus Salihin" <?php echo $upload->category == "Riyadus Salihin"? 'selected' : ''; ?> >Riyadus Salihin</option>   
+                                            <?php foreach($categories as $category): ?>
+                                                <option value="<?php echo $category->category ?>" <?php echo $upload->category == $category->category? 'selected' : ''; ?> ><?php echo $category->category ?></option>
+                                            <?php endforeach; ?>
+                                             
                                         </select>    
                                     </div>
                                     <div class="form-group has-success">

@@ -27,7 +27,7 @@
             <div class="col-lg-6 offset-3">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">New Upload</strong>
+                        <strong class="card-title">Add New Category</strong>
                     </div>
                     <div class="card-body">
                         <!-- Credit Card -->
@@ -49,42 +49,14 @@
                                 <?php }?>
                                 </div>
                                 <hr>
-                                <form action="<?= base_url('admin/save_upload') ?>" enctype="multipart/form-data" method="post" novalidate="novalidate">
+                                <form action="<?= base_url('admin/save_category') ?>" method="post" novalidate="saveCategory">
                                     <div class="form-group">
-                                        <label for="cc-payment" class="control-label mb-1">The Media File</label>
-                                        <input id="cc-pament" name="uploaded_file" type="file" class="form-control" aria-required="true" aria-invalid="false" >
+                                        <label for="category" class="control-label mb-1">Category Name</label>
+                                        <input id="category" name="category" type="text" class="form-control" aria-required="true" aria-invalid="false" required >
                                     </div> 
-                                    <div class="form-group has-success">
-                                        <label for="category"  class="control-label mb-1">Category</label>
-                                        <select class="form-control" name="category" required>
-                                            <option>Select</option>
-                                            <?php foreach($categories as $category): ?>
-                                                <option value="<?php echo $category->category ?>" ><?php echo $category->category ?></option>
-                                            <?php endforeach; ?>
-                                        </select>    
-                                    </div>
-                                    <div class="form-group has-success">
-                                        <label for="volume"  class="control-label mb-1">Volume</label>
-                                        <select class="form-control" name="volume" required>
-                                            <option>Select</option>
-                                            <option value="1" >1</option>
-                                            <option value="2" >2</option>
-                                            <option value="3" >3</option>
-                                            <option value="4" >4</option>
-                                            <option value="5" >5</option>
-                                            <option value="6" >6</option>
-                                            <option value="7" >7</option>
-                                        </select>    
-                                    </div>
-                                    <div class="form-group has-success">
-                                        <label for="cc-name" class="control-label mb-1">Description</label>
-                                        <textarea class="form-control" name="description" style="resize:none;" rows="5" ></textarea>  
-                                    </div>
                                     
-                                   
                                     <div>
-                                        <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
-                                            
+                                        <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">         
                                             <span id="payment-button-amount">Submit</span>
                                             <span id="payment-button-sending" style="display:none;">Sending…</span>
                                         </button>

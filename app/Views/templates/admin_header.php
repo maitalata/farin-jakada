@@ -60,6 +60,7 @@
                             <li><i class="fa fa-lock"></i><a href="<?= base_url('admin/addAdmin') ?>">Add New Admin</a></li>
                             <li><i class="fa fa-lock"></i><a href="<?= base_url('admin/changePassword') ?>">Change Password</a></li>
                             <li><i class="fa fa-user"></i><a href="tables-data.html">Update Profile</a></li>
+                            <li><i class="fa fa-plus"></i><a href="<?php echo base_url('admin/add_new_category') ?>">Add New Category</a></li>
                         </ul>
                     </li>
                     <li class="">

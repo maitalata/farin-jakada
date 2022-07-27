@@ -75,6 +75,11 @@ class AdminModel extends Model
         $this->db->table('uploads')->insert($data);
     }
 
+    public function save_category($data)
+    {
+        $this->db->table('categories')->insert($data);
+    }
+
     /**
      * Get the total number of uploaded items
      * 
@@ -94,6 +99,13 @@ class AdminModel extends Model
             return $last_row->id;
         }
         
+    }
+
+    public function get_categories()
+    {
+        $builder = $this->db->table('categories');
+        $query = $builder->get();
+        return $query->getResult();
     }
 
 }

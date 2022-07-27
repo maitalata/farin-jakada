@@ -32,6 +32,17 @@ class Admin extends BaseController
         }
     }
 
+    public function add_new_category()
+    {
+        if (isset($_SESSION['admin_logged_in'])) {
+            echo view('templates/admin_header');
+            echo view('admin/add_new_category');
+            echo view('templates/admin_footer');
+        } else {
+            return redirect()->to('admin/login');
+        }
+    }
+
     /**
      * Function that display the new upload page
      *
@@ -41,7 +52,9 @@ class Admin extends BaseController
     {
         if (isset($_SESSION['admin_logged_in'])) {
             //dd(phpinfo());
-            echo view('templates/admin_header');
+            $data['categories'] = $this->admin_model->get_categories();
+
+            echo view('templates/admin_header', $data);
             echo view('admin/new_upload');
             echo view('templates/admin_footer');
         } else {
@@ -55,7 +68,7 @@ class Admin extends BaseController
             //dd(phpinfo());
 
             $data['upload'] = $this->postModel->where('id', $upload)->first();
- 
+            $data['categories'] = $this->admin_model->get_categories();
 
             echo view('templates/admin_header', $data);
             echo view('admin/edit_upload');
@@ -229,6 +242,36 @@ class Admin extends BaseController
 
             $this->session->setFlashdata('success', 'Item uploaded successfully');
             return redirect()->to('admin/new_upload');
+
+        } else {
+            $this->session->setFlashdata('errors', $validation->getErrors());
+            return redirect()->to('admin/uploads');
+        }
+
+    }
+
+    public function save_category()
+    {
+        helper(['form', 'url']);
+
+        //Call the validation library
+        $validation = \Config\Services::validation();
+
+        $validation->setRules(
+            [
+                'category' => ['label' => 'Category', 'rules' => 'required'],
+            ]
+        );
+
+        if ($validation->withRequest($this->request)->run()) {
+            $data = [
+                'category' => $this->request->getVar('category'),
+            ];
+
+            $this->admin_model->save_category($data);
+
+            $this->session->setFlashdata('success', 'Added successfully');
+            return redirect()->to('admin/add_new_category');
 
         } else {
             $this->session->setFlashdata('errors', $validation->getErrors());
